@@ -225,7 +225,10 @@ def get_pixbuf_from_journal(dsobject, w, h):
         pixbuf = pixbufloader.get_pixbuf()
     except:
         pixbuf = None
-    pixbufloader.close()
+    try:
+        pixbufloader.close()
+    except Exception as e:
+        print("Warning: {} has occured".format(e))
     return pixbuf
 
 
